@@ -10,7 +10,9 @@ def create_app():
 
     ex.db.init_app(app)
 
-    # test the SECRET_KEY
-    print(" * SECRET_KEY (worked):", app.secret_key)
+    from app.routes import auth, blog, portfolio
+    app.register_blueprint(portfolio.bp)
+    app.register_blueprint(blog.bp)
+    app.register_blueprint(auth.bp)
 
     return app
