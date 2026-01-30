@@ -11,6 +11,7 @@ def create_app():
     ex.db.init_app(app)
 
     from app.routes import auth, blog, portfolio
+
     app.register_blueprint(portfolio.bp)
     app.register_blueprint(blog.bp)
     app.register_blueprint(auth.bp)
