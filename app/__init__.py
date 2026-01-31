@@ -10,8 +10,10 @@ def create_app():
 
     ex.db.init_app(app)
     ex.login_manager.init_app(app)
+    ex.csrf.init_app(app)
 
     from app.models import User
+
     @ex.login_manager.user_loader
     def load_user(user_id):
         return User.query.get(user_id)
