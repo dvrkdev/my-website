@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+    Admin Login
+{% endblock title %}
+{% block content %}
+    <form action="{{ url_for('auth.login') }}" method="post">
+        {{ form.hidden_tag() }}
+        <fieldset>
+            <legend>Admin Login</legend>
+            <p>
+                {{ form.username.label() }}
+                {{ form.username() }}
+            </p>
+            <p>
+                {{ form.password.label() }}
+                {{ form.password() }}
+            </p>
+            {{ form.submit() }}
+        </fieldset>
+    </form>
+{% endblock content %}
